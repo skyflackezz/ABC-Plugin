@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Realization Category"
+            id="ABC_Plugin.commands.category">
+      </category>
+      <command
+            name="Realize"
+            categoryId="ABC_Plugin.commands.category"
+            id="ABC_Plugin.commands.realize">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="ABC_Plugin.commands.realize"
+            class="abc_plugin.handlers.AbcHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="ABC_Plugin.commands.realize"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Realization"
+               mnemonic="M"
+               id="ABC_Plugin.menus.sampleMenu">
+            <command
+                  commandId="ABC_Plugin.commands.realize"
+                  mnemonic="S"
+                  id="ABC_Plugin.menus.realize"
+                  label="Realize">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="ABC_Plugin.toolbars.sampleToolbar">
+            <command
+                  commandId="ABC_Plugin.commands.realize"
+                  icon="icons/sample.gif"
+                  tooltip="Start realizing"
+                  id="ABC_Plugin.toolbars.realize">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
